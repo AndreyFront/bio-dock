@@ -1,3 +1,37 @@
 .header {
     flex: 0 0 auto;
+    position: fixed;
+    z-index: 98;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 36px 0;
+    background-color: $color-1;
+
+    &__nav-list,
+    &__block-links {
+        grid-column-gap: 40px;
+    }
+
+    &__nav-list,
+    &__block-links,
+    .main-container {
+        display: grid;
+        grid-auto-columns: max-content;
+        grid-auto-flow: column;
+        align-items: center;
+    }
+
+    .logo {
+        display: none;
+
+        &__image {
+            width: 196px;
+            height: 31px;
+        }
+    }
+
+    .main-container {
+        justify-content: space-between;
+    }
 }

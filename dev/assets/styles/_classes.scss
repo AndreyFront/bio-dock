@@ -7,10 +7,17 @@
 }
 
 .max-width {
-    max-width: 1440px;
+    max-width: 1400px;
     padding-left: 20px;
     padding-right: 20px;
 }
+
+.main-wrapper {
+    padding: 58px;
+    border-radius: 60px;
+    background-color: $main-color;
+}
+
 
 .scroll-lock {
     position: fixed;
@@ -24,11 +31,21 @@
 }
 
 a {
-    color: blue;
+    color: $main-color;
 }
 
 .title-reset {
     margin: 0;
+}
+
+.link {
+    font-weight: 500;
+    @include adaptiv-font(16, 20);
+    transition: color $transition-time;
+
+    &:hover {
+        color: $color-3;
+    }
 }
 
 .link-reset {
@@ -58,6 +75,13 @@ a {
         letter-spacing: 1px;
     }
 
+    &__sign {
+        @include adaptiv-font(23, 20);
+        font-weight: 500;
+        letter-spacing: 1px;
+        line-height: 1.5em;
+    }
+
     &__box {
         margin: 50px;
     }
@@ -68,10 +92,11 @@ a {
         border-bottom: 1px solid;
         border-bottom-color: transparent;
         padding-left: 35px;
+        color: $color-1;
         transition: border-bottom $transition-time;
 
         &:hover {
-            border-bottom-color: blue;
+            border-bottom-color: $color-1;
         }
 
         &.desktop {

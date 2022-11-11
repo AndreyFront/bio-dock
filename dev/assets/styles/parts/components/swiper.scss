@@ -1,0 +1,36 @@
+.page {
+    .swiper {
+        position: relative;
+    
+        &__block-arrow {
+            position: absolute;
+            z-index: 1;
+            right: 33px;
+            bottom: 52px;
+            display: grid;
+            grid-template-columns: repeat(2, max-content);
+            grid-column-gap: 16px;
+        }
+    
+        .swiper-pagination {
+            position: absolute;
+            top: 47px;
+            right: 33px;
+            left: auto;
+            height: max-content;
+            width: max-content;
+
+            .swiper-pagination-bullet {
+                margin: 0 3px;
+                opacity: 1;
+                border: 1px solid $main-color;
+                background-color: transparent;
+                transition: background-color $transition-time;
+
+                &.swiper-pagination-bullet-active {
+                    background-color: $main-color;
+                }
+            }
+        }
+    }
+}

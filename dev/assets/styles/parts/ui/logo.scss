@@ -1,0 +1,14 @@
+.logo {
+    transition: opacity $transition-time;
+
+    &:hover {
+        opacity: 0.6;
+    }
+
+    &__image {
+        width: 37px;
+        height: 57px;
+        object-fit: contain;
+        object-position: center;
+    }
+}

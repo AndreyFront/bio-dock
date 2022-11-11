@@ -1,0 +1,32 @@
+.section-logo {
+
+    img {
+        object-fit: contain;
+        object-position: center;
+    }
+
+    &__logo {
+        grid-column: 1/-1;
+        width: 48px;
+        height: 74px;
+    }
+
+    &__logo-text {
+        max-width: 1017px;
+        width: 100%;
+        height: 189px;
+    }
+
+    &__copyright {
+        width: 77px;
+        height: 77px;
+        transform: translateY(-70%);
+    }
+
+    .main-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        grid-column-gap: 15px;
+        grid-row-gap: 63px;
+    }
+}

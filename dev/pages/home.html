@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        @include('./include/layouts/head.html', {
+            "title": "БиоДОК"
+        })
+    </head>
+    <body>
+        <div class="wrapper-page">
+            @include('./include/layouts/header.html')
+            <main class="page home-page" data-page="main">
+                <!-- @include('./include/components/name.html') -->
+                
+                @include('./include/components/slider-products.html')
+                @include('./include/components/list-products.html')
+                @include('./include/components/info-block.html')
+                
+            </main>
+            @include('./include/layouts/footer.html')
+            @include('./include/layouts/scripts.html')
+        </div>
+    </body>
+</html>

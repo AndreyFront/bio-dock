@@ -1,3 +1,125 @@
 .footer {
     flex: 0 0 auto;
+
+    &__wrapper-info {
+        display: grid;
+        grid-template-columns: repeat(2, max-content) auto;
+        grid-column-gap: 85px;
+        align-items: start;
+    }
+
+    &__wrapper-contacts {}
+
+    &__inner-contacts {
+        display: grid;
+        grid-row-gap: 16px;
+        margin-top: 29px;
+
+        .link {
+            @include adaptiv-font(18, 20);
+        }
+    }
+
+    &__block-contact {
+        display: grid;
+        grid-row-gap: 8px;
+    }
+
+    &__title-contact {
+        opacity: 0.7;
+        letter-spacing: -0.8px;
+    }
+
+    &__nav {
+
+        .link {
+            @include adaptiv-font(32, 20);
+        }
+    }
+
+    &__nav-list {
+        display: grid;
+        grid-row-gap: 24px;
+        align-content: start;
+    }
+
+    &__nav-li {}
+
+    &__block-shops {
+        margin-left: auto;
+        max-width: 452px;
+        width: 100%;
+
+        &.main-wrapper {
+            padding: 30px;
+            border-radius: 30px;
+        }
+    }
+
+    &__shops-title {
+        font-size: 24px;
+        font-weight: 600;
+        color: $color-1;
+    }
+
+    &__inner-shops {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 56px;
+
+        .btn {
+            width: max-content;
+            padding: 0 32px;
+        }
+    }
+
+    &__wrapper-copyright {
+        display: grid;
+        grid-auto-columns: auto;
+        grid-auto-flow: column;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 62px;
+        padding: 16px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    &__copyright,
+    &__link {
+        @include adaptiv-font(14, 12);
+        opacity: 0.7;
+    }
+
+    &__link {
+        transition: opacity $transition-time;
+
+        &--developer {
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            justify-content: end;
+            align-items: center;
+            grid-column-gap: 4px;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &__link-developer-text {
+        font-size: 14px;
+        opacity: 0.7;
+    }
+
+    &__link-developer-icon {
+        width: 18px;
+        height: 13px;
+
+        use {
+            fill: $main-color;
+        }
+    }
+
+    .main-container {}
 }

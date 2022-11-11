@@ -74,7 +74,7 @@ const isProd = false
 gulp.task('scripts', () => {
     return src([`${pathSrc.scripts}main.js`], { sourcemaps: true })
         .pipe(gulpif(isProd, uglify().on('error', notify.onError())))
-        .pipe(rename({ extname: '.min.js' }))
+        // .pipe(rename({ extname: '.min.js' }))
         .pipe(dest(`${pathDist.scripts}`, { sourcemaps: true }))
         .pipe(browserSync.stream());
 })
@@ -83,7 +83,7 @@ gulp.task('scripts-libs', () => {
     return src([`${pathSrc.scripts}libs/*.js`], { sourcemaps: true })
         .pipe(concat('libs.js'))
         .pipe(gulpif(isProd, uglify().on('error', notify.onError())))
-        .pipe(gulpif(isProd, rename({ extname: '.min.js' })))
+        // .pipe(gulpif(isProd, rename({ extname: '.min.js' })))
         .pipe(dest(`${pathDist.scripts}`, { sourcemaps: true }))
         .pipe(browserSync.stream());
 })
@@ -128,7 +128,7 @@ gulp.task('styles', () => {
             })
         )
         .pipe(gulpif(isProd, cleanCSS({ level: 2 })))
-        .pipe(rename({ extname: '.min.css' }))
+        // .pipe(rename({ extname: '.min.css' }))
         .pipe(dest(`${pathDist.styles}`, { sourcemaps: true }))
         .pipe(browserSync.stream());
 })
