@@ -1,0 +1,30 @@
+.contacts {
+    padding: 20px 0 40px 0;
+
+    &__wrapper-title {
+        padding: 58px 58px 48px 58px;
+    }
+
+    &__block-title {
+        text-align: center;
+        margin-top: 17px;
+    }
+
+    &__title {
+        @include adaptiv-font(58, 32);
+        font-weight: 600;
+        color: $color-1;
+    }
+
+    .logo {
+        width: max-content;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .main-wrapper {
+        padding: 0;
+    }
+}

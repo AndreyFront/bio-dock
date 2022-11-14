@@ -58,6 +58,48 @@ a {
     list-style-type: none;
 }
 
+[data-scrollbar] {
+    padding-right: 15px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.simplebar-track.simplebar-vertical {
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 100%;
+        border-radius: 65px;
+        background-color: $color-12;
+    }
+}
+
+.simplebar-scrollbar.simplebar-visible {
+    &::before {
+        opacity: 1 !important;
+        border-radius: 65px;
+        background: $color-11;
+    }
+}
+
+.simplebar-scrollbar:before {
+    left: 3px !important;
+    right: 3px !important;
+}
+
+.simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
+    top: 0 !important;
+    bottom: 0 !important;
+}
+
 .dev {
     display: flex;
     flex-wrap: wrap;

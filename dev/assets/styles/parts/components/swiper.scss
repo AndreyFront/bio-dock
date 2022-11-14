@@ -20,16 +20,35 @@
             height: max-content;
             width: max-content;
 
-            .swiper-pagination-bullet {
-                margin: 0 3px;
-                opacity: 1;
-                border: 1px solid $main-color;
-                background-color: transparent;
-                transition: background-color $transition-time;
+            &--theme--primary {
+                .swiper-pagination-bullet {
+                    margin: 0 3px;
+                    border: 1px solid $main-color;
+                    background-color: transparent;
 
-                &.swiper-pagination-bullet-active {
-                    background-color: $main-color;
+
+                    &.swiper-pagination-bullet-active {
+                        background-color: $main-color;
+                    }
                 }
+            }
+
+            &--theme--secondary {
+                .swiper-pagination-bullet {
+                    margin: 0 5px;
+                    // border: none;
+                    background-color: $color-3;
+
+
+                    &.swiper-pagination-bullet-active {
+                        background-color: $main-color;
+                    }
+                }
+            }
+
+            .swiper-pagination-bullet {
+                opacity: 1;
+                transition: background-color $transition-time;
             }
         }
     }

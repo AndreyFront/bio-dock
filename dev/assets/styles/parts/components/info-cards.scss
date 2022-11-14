@@ -1,0 +1,74 @@
+.info-cards {
+    padding: 20px 0;
+
+    &__group-card {
+        display: grid;
+        grid-template-rows: repeat(2, 214px);
+        grid-row-gap: 10px;
+    }
+
+    &__info-card {
+        display: grid;
+        grid-row-gap: 24px;
+        align-content: space-between;
+        padding: 24px;
+        border-radius: 20px;
+        background-color: $main-color;
+
+        &--color--orange {
+            .info-cards__title-card {
+                color: $color-6;
+            }
+        }
+
+        &--color--green {
+            .info-cards__title-card {
+                color: $color-7;
+            }
+        }
+
+        &--color--blue {
+            .info-cards__title-card {
+                color: $color-8;
+            }
+        }
+
+        &--color--yellow {
+            .info-cards__title-card {
+                color: $color-9;
+            }
+        }
+    }
+
+    &__title-card {
+        @include adaptiv-font(26, 24);
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    &__description-card {
+        opacity: 0.7;
+        color: $color-1;
+        line-height: 1.44em;
+        letter-spacing: -0.2px;
+        @include adaptiv-font(18, 16);
+    }
+
+    &__image-card {
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .main-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 20px;
+    }
+}

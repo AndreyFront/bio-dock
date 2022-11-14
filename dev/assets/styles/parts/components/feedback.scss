@@ -1,0 +1,53 @@
+.feedback {
+    padding: 20px 0;
+
+    &__form {
+        display: grid;
+        grid-row-gap: 72px;
+    }
+
+    &__block-head {
+        display: grid;
+        grid-template-columns: max-content auto;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__block-title {
+        padding: 16px 32px;
+        background-color: $color-3;
+        border-radius: 30px;
+    }
+
+    &__title {
+        font-weight: 600;
+        @include adaptiv-font(24, 12);  
+    }
+
+    &__subtitle {
+        @include adaptiv-font(20, 16);
+        font-weight: 600;
+        color: $color-1;
+    }
+
+    &__block {}
+
+    &__title-block {
+        font-weight: 600;
+        @include adaptiv-font(24, 16);
+        color: $color-1;
+    }
+
+    &__inner-block {
+        display: grid;
+        grid-auto-columns: max-content;
+        grid-auto-flow: column;
+        grid-column-gap: 20px;
+        grid-row-gap: 8px;
+        margin-top: 24px;
+    }
+
+    .btn[type=submit] {
+        width: 299px;
+    }
+}
