@@ -1,0 +1,24 @@
+.social-network {
+
+    &__list {
+        display: grid;
+        grid-auto-columns: max-content;
+        grid-auto-flow: column;
+        grid-column-gap: 24px;
+    }
+
+    &__li {}
+
+    &__link {
+        transition: opacity $transition-time;
+
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+
+    &__icon {
+        width: 42px;
+        height: 42px;
+    }
+}

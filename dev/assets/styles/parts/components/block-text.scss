@@ -1,0 +1,21 @@
+.block-text {
+    display: grid;
+    grid-row-gap: 56px;
+    padding: 29px;
+    border: 1px solid rgba(27, 27, 41, 0.7);
+    border-radius: 30px;
+
+    &__title,
+    &__text {
+        @include adaptiv-font(18, 16);
+        color: $color-1;
+    }
+
+    &__title {}
+
+    &__text {
+        opacity: 0.7;
+        line-height: 1.43em;
+        letter-spacing: -0.2px;
+    }
+}

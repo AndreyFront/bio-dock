@@ -7,6 +7,13 @@ function page() {
     main.style.paddingTop = `${header.offsetHeight}px`
 }
 
+function myModal() {
+    return new HystModal({
+        linkAttributeName: "data-hystmodal",
+        waitTransitions: true,
+    })
+}
+
 function customScrollbar() {
     const elements = document.querySelectorAll('[data-scrollbar]')
 
@@ -316,10 +323,31 @@ function productCard() {
     })
 }
 
+function reviews() {
+    const main = document.querySelector('[data-reviews="main"]')
+
+    if (!main) return
+
+    const slider = main.querySelector('[data-reviews="slider"]')
+    const btnNext = main.querySelector('[data-reviews="btn-next"]')
+    const btnPrev = main.querySelector('[data-reviews="btn-prev"]')
+
+    if (window.matchMedia("(max-width: 992px)").matches) {
+        const swiper = new Swiper(slider, {
+            navigation: {
+                nextEl: btnNext,
+                prevEl: btnPrev,
+            }, 
+        })
+    }
+}
+
 page()
+myModal()
 customScrollbar()
 smoothScrolling()
 sliderProducts()
 productCard()
 validateForm()
 input()
+reviews()
