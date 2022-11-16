@@ -1,1 +1,141 @@
-@media screen and (max-width: 767px) {}
+@media screen and (max-width: 767px) {
+    .section-logo {
+
+        &__logo-text {
+            width: 250px;
+            height: 46px;
+        }
+
+        &__copyright {
+            width: 19px;
+            height: 19px;
+        }
+
+        .main-wrapper {
+            grid-column-gap: 2px;
+            grid-row-gap: 43px;
+        }
+    }
+
+    .slider-products {
+        &__image {
+            width: 145px;
+            height: 280px
+        }
+
+        &__link-more {
+            width: 137px;
+            min-height: 51px;
+        }
+    }
+
+    .info-cards {
+        &__info-card,
+        &__image-card {
+            border-radius: 35px;
+        }
+
+        &__group-card {
+            grid-template-rows: repeat(2, 158px);
+        }
+    }
+
+    .product-card {
+        &__slider {
+            height: 315px;
+        }
+    }
+
+    .feedback {
+        &__block-head {
+            grid-template-columns: max-content;
+            grid-row-gap: 16px;
+        }
+
+        &__block-title {
+            padding: 8px 10px;
+        }
+
+        &__title {
+            font-weight: 400;
+        }
+
+        &__subtitle {
+            order: 1;
+        }
+
+        &__block-title {
+            order: 2;
+        }
+
+        &__form {
+            grid-row-gap: 24px;
+        }
+
+        &__inner-block {
+            margin-top: 16px;
+        }
+
+        .btn[type=submit] {
+            min-height: 69px;
+            border-radius: 25px;
+        }
+    }
+
+    .radio {
+        &__text {
+            min-height: 69px;
+            border-radius: 25px;
+        }
+    }
+
+    .input {
+        &__block-input {
+            height: 69px;
+            border-radius: 25px;
+        }
+    }
+
+    .reviews {
+        &__wrapper-reviews {
+            margin-top: 20px;
+        }
+
+        &__inner-review {
+
+            &--left {
+                grid-template-columns: 1fr minmax(100px, 1fr);
+            }
+
+            &--right {
+                grid-template-columns: minmax(100px, 1fr) 1fr;
+            }
+        }
+
+        &__slider {
+            .swiper-slide {
+                height: 300px;
+            }
+        }
+    }
+
+    .block-text {
+        grid-row-gap: 16px;
+    }
+
+    .page-not-found {
+
+        &__block-info {
+            grid-row-gap: 24px;
+        }
+
+        &__image {
+            width: 320px;
+            height: 162px;
+        }
+
+        .btn {
+            margin-top: 30px;
+        }
+    }
+}

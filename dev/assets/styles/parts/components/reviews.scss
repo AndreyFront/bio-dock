@@ -20,11 +20,11 @@
         grid-column-gap: 20px;
 
         &--left {
-            grid-template-columns: 383px 1fr;
+            grid-template-columns: 383px minmax(100px, 1fr);
         }
 
         &--right {
-            grid-template-columns: 1fr 383px;
+            grid-template-columns: minmax(100px, 1fr) 383px;
         }
     }
 
@@ -32,7 +32,7 @@
 
         .swiper-wrapper {
             display: grid;
-            grid-template-columns: repeat(3, minmax(200px, 267px));
+            grid-template-columns: repeat(3, 1fr);
             grid-column-gap: 20px;
         }
 
@@ -51,7 +51,7 @@
         right: 16px;
     }
 
-    &__image-rewiew {
+    &__image-review {
         width: 100%;
         height: 100%;
         object-fit: cover;

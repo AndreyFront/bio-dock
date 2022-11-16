@@ -1,0 +1,9 @@
+.m-ruler {
+    &.hystmodal {
+        .hystmodal {
+            &__window {
+                background-color: transparent;
+            }
+        }
+    }
+}

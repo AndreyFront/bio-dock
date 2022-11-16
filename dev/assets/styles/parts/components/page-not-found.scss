@@ -1,0 +1,32 @@
+.page-not-found {
+    padding-bottom: 20px;
+
+    &__block-info {
+        display: grid;
+        grid-row-gap: 32px;
+        justify-content: center;
+    }
+
+    &__image,
+    .btn {
+        margin: 0 auto;
+    }
+
+    &__image {
+        width: 534px;
+        height: 271px;
+        object-fit: contain;
+        object-position: center;
+    }
+
+    &__title {
+        font-weight: 600;
+        @include adaptiv-font(48, 24);
+        text-align: center;
+        color: $color-1;
+    }
+
+    .btn {
+
+    }
+}

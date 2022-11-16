@@ -1,13 +1,27 @@
 .logo {
+    display: grid;
+    width: max-content;
     transition: opacity $transition-time;
 
-    &:hover {
+    &[href]:hover {
         opacity: 0.6;
     }
 
+    &--size--sm {
+        .logo__image {
+            width: 37px;
+            height: 57px;
+        }
+    }
+
+    &--size--md {
+        .logo__image {
+            width: 48px;
+            height: 74px;
+        }
+    }
+
     &__image {
-        width: 37px;
-        height: 57px;
         object-fit: contain;
         object-position: center;
     }

@@ -21,6 +21,7 @@
     &__block-contact {
         display: grid;
         grid-row-gap: 24px;
+        align-content: start;
     }
 
     &__title-contact {
@@ -37,14 +38,6 @@
 
         &:hover {
             color: $color-3;
-        }
-    }
-
-    .logo {
-        width: max-content;
-
-        &:hover {
-            opacity: 1;
         }
     }
 

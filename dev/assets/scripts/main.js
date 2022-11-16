@@ -196,6 +196,46 @@ function validateForm() {
         }
     })
 }
+
+function menuHeight() {     
+    const header = document.querySelector('[data-header="main"]')
+
+    if (!header) return
+
+    document.addEventListener('click', (event) => {
+        const el = event.target
+
+        if (el.closest('[data-header="main"]')) {
+            if (el.closest('[data-header="btn-menu"]')) {
+                header.classList.toggle('active-menu')
+            }
+        } else {
+            header.classList.remove('active-menu')
+        }
+    })
+}
+
+function fixedHeader() {     
+    const header = document.querySelector('[data-header="main"]')
+
+    if (!header) return
+
+    if (window.matchMedia("(min-width: 992px)").matches) {
+        let prevScrollpos = window.pageYOffset
+
+        window.addEventListener("scroll", () => {
+            const currentScrollPos = window.pageYOffset
+
+            if (prevScrollpos > currentScrollPos) {
+                header.classList.remove('header--hide')
+            } else {
+                header.classList.add('header--hide')
+            }
+
+            prevScrollpos = currentScrollPos
+        })
+    }
+}
     
 function input() {
     const inputs = document.querySelectorAll('[data-input="block-input"]')
@@ -274,40 +314,45 @@ function productCard() {
 
         const blocksInfo = main.querySelectorAll('[data-product-card="block-info"]')
 
-        if (blocksInfo.length) {
-            blocksInfo.forEach(blockInfo => {
-                const head = blockInfo.querySelector('[data-product-card="block-head-info"]')
-                const body = blockInfo.querySelector('[data-product-card="block-body-info"]')
-
-                if (!body && !head) return
-    
-                let heightEl = body.offsetHeight
-                body.classList.add('not-active')
-                body.style.height = '0px'
-
-                const closeAll = () => {
-                    blocksInfo.forEach(blockInfo => {
-                        const body = blockInfo.querySelector('[data-product-card="block-body-info"]')
-
-                        blockInfo.classList.remove('active')
-                        body.classList.add('not-active')
-                        body.style.height = '0px'
-                    })
-                }
+            if (blocksInfo.length) {
+                blocksInfo.forEach(blockInfo => {
+                    const head = blockInfo.querySelector('[data-product-card="block-head-info"]')
+                    const body = blockInfo.querySelector('[data-product-card="block-body-info"]')
+                    if (window.matchMedia("(min-width: 577px)").matches) {
+                        if (!body && !head) return
             
-                head.addEventListener('click', () => {
-                    if (body.classList.contains('not-active')) {
-                        closeAll()
-                        blockInfo.classList.add('active')
-                        body.classList.remove('not-active')
-                        body.style.height = `${heightEl}px`
-                    } else {
-                        blockInfo.classList.remove('active')
+                        let heightEl = body.offsetHeight
                         body.classList.add('not-active')
                         body.style.height = '0px'
+        
+                        const closeAll = () => {
+                            blocksInfo.forEach(blockInfo => {
+                                const body = blockInfo.querySelector('[data-product-card="block-body-info"]')
+        
+                                blockInfo.classList.remove('active')
+                                body.classList.add('not-active')
+                                body.style.height = '0px'
+                            })
+                        }
+                    
+                        head.addEventListener('click', () => {
+                            if (body.classList.contains('not-active')) {
+                                closeAll()
+                                blockInfo.classList.add('active')
+                                body.classList.remove('not-active')
+                                body.style.height = `${heightEl}px`
+                            } else {
+                                blockInfo.classList.remove('active')
+                                body.classList.add('not-active')
+                                body.style.height = '0px'
+                            }
+                        })
+                    } else {
+                        // head.setAttribute=""
+                        // Сделать перенос текста в модалку по клику на ссылку 
                     }
-                })
             })
+           
         }
 
         const swiper = new Swiper(slider, {
@@ -328,22 +373,35 @@ function reviews() {
 
     if (!main) return
 
-    const slider = main.querySelector('[data-reviews="slider"]')
-    const btnNext = main.querySelector('[data-reviews="btn-next"]')
-    const btnPrev = main.querySelector('[data-reviews="btn-prev"]')
-
-    if (window.matchMedia("(max-width: 992px)").matches) {
-        const swiper = new Swiper(slider, {
-            navigation: {
-                nextEl: btnNext,
-                prevEl: btnPrev,
-            }, 
+    const reviews = main.querySelectorAll('[data-reviews="review"]')
+    if (window.matchMedia("(max-width: 1200px)").matches) {
+        reviews.forEach(review => {
+            const slider = review.querySelector('[data-reviews="slider"]')
+            const btnNext = review.querySelector('[data-reviews="btn-next"]')
+            const btnPrev = review.querySelector('[data-reviews="btn-prev"]')
+        
+            const swiper = new Swiper(slider, {
+                slidesPerView: 1,
+                spaceBetween: 0,
+                navigation: {
+                    nextEl: btnNext,
+                    prevEl: btnPrev,
+                },
+                breakpoints: {
+                    820: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                }
+            })
         })
     }
 }
 
 page()
 myModal()
+menuHeight()
+fixedHeader()
 customScrollbar()
 smoothScrolling()
 sliderProducts()

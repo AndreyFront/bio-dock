@@ -1,0 +1,41 @@
+@media screen and (max-width: 1500px) {
+    .product-card {
+
+        &__block-name {
+            display: grid;
+            grid-row-gap: 8px;
+        }
+
+        .price-label {
+            position: relative;
+            z-index: 1;
+            grid-template-columns: repeat(2, max-content);
+            align-items: center;
+            grid-column-gap: 12px;
+            top: 0;
+            right: 0;
+            transform: translate(0, 0);
+            width: max-content;
+            height: max-content;
+            background-color: transparent;
+
+            &__text {
+                color: $color-1;
+            }
+
+            &__price {
+                color: $color-3; 
+            }
+
+            &__block-info {
+                grid-column-gap: 6px;
+            }
+
+            .hint-label {
+                &__icon use {
+                    stroke: $color-1; 
+                }
+            }
+        }
+    }
+}
