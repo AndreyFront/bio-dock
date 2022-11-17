@@ -206,4 +206,15 @@
             text-align: left;
         }
     }
+
+    .product-card-preview {
+        &__content {
+            grid-row-gap: 16px;
+        }
+
+        &__block-image {
+            width: 225px;
+            height: 310px;
+        }
+    }
 }

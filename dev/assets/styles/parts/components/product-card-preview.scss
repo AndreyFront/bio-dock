@@ -10,6 +10,11 @@
         background-color: $color-4;
     }
 
+    &__content {
+        display: grid;
+        grid-row-gap: 35px;
+    }
+
     &__name {
         color: $color-1;
         @include adaptiv-font(24, 20);
@@ -18,7 +23,7 @@
     }
 
     &__block-image {
-        margin-top: 35px;
+        margin-top: auto;
     }
 
     &__image {
@@ -34,7 +39,6 @@
         justify-content: center;
         grid-template-columns: repeat(2, max-content);
         grid-column-gap: 6px;
-        margin-top: 24px;
         padding: 24px 0;
         width: 100%;
         background-color: transparent;

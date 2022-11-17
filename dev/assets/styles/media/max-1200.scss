@@ -95,4 +95,11 @@
             }
         }
     }
+
+    .list-products {
+        .main-wrapper {
+            grid-column-gap: 22px;
+            grid-row-gap: 22px;
+        }
+    }
 }

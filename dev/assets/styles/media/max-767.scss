@@ -138,4 +138,99 @@
             margin-top: 30px;
         }
     }
+
+    .product-card-preview {
+        padding: 20px 30px 0 20px 30px;
+
+        &__block-image {
+            margin: 0 auto;
+            width: 310px;
+            height: 310px;
+        }
+
+        &__btn {
+            display: grid;
+        }
+    }
+
+    .list-products {
+
+        .main-wrapper {
+            grid-template-columns: 1fr;
+            padding: 0;
+            grid-row-gap: 0;
+            overflow: hidden;
+        }
+
+        .product-card-preview {
+            position: relative;
+            overflow: hidden;
+            // height: 97px;
+            border-radius: 35px;
+            transition: height $transition-time, transform $transition-time, padding $transition-time, margin-top $transition-time;
+
+            &:not(:first-child) {
+                padding: 52px 30px 0 30px;
+                margin-top: -32px;
+            }
+
+            &.active {
+                // height: 496px;
+            }
+
+            &:not(.active) {
+
+                &:first-child {
+                    .product-card-preview__name {
+                        transform: translate(-50%, -50%);
+                    }
+                }
+
+                &:not(:first-child) {
+                    .product-card-preview__name {
+                        transform: translate(-50%, 0);
+                    }
+                }
+
+                .product-card-preview__name {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: calc(100% - 60px);
+                }
+
+                .product-card-preview__block-image {
+                    opacity: 0;
+                    visibility: hidden;
+                    pointer-events: none;
+                }
+            }
+
+            &:nth-child(2n) {
+                background-color: $color-4;
+
+                &:hover {
+                    background-color: $color-4;
+                }
+            }
+
+            &:nth-child(2n+1) {
+                &:hover {
+                    background-color: $main-color;
+                }
+            }
+
+            &__content {
+                padding-bottom: 8px;
+            }
+
+            &__block-image {
+                transition: opacity $transition-time, visibility $transition-time;
+            }
+
+            &__name {
+                transition: width $transition-time, position $transition-time;
+            }
+        }
+    }
 }

@@ -39,7 +39,7 @@ function smoothScrolling() {
             
             document.querySelector(`[data-smooth-scrolling="${blockID}"]`).scrollIntoView({
                 behavior: 'smooth',
-                block: 'center'
+                block: 'start'
             })
         })
     })
@@ -398,6 +398,94 @@ function reviews() {
     }
 }
 
+function listProducts() {
+    const main = document.querySelector('[data-list-products="main"]')
+
+    if (!main) return
+
+    const productCardPreviews = main.querySelectorAll('[data-list-products="product-card-preview"]')
+    const countProductCardPreviews = productCardPreviews.length
+    const openingInterval = (99 / countProductCardPreviews) / 100
+    const heightProductCardPreviews = []
+
+    productCardPreviews.forEach((productCardPreview, index) => {
+        productCardPreview.classList.add('active')
+        heightProductCardPreviews.push(productCardPreview.offsetHeight)
+        productCardPreview.style.height = '97px'
+        productCardPreview.style.zIndex = `${countProductCardPreviews - index}`
+        productCardPreview.classList.remove('active')
+        productCardPreview.setAttribute('data-list-products-index', index)
+    })
+
+    const hideAllCards = () => {
+        productCardPreviews.forEach(productCardPreview => {
+            productCardPreview.classList.remove('active')
+            productCardPreview.style.height = '97px'
+        })
+    }
+
+    const showCard = (index) => {
+        productCardPreviews[index].classList.add('active')
+        productCardPreviews[index].style.height = `${heightProductCardPreviews[index]}px`
+    }
+
+    showCard(0)
+
+    const btnNext = productCardPreviews[countProductCardPreviews - 1].querySelector('[data-list-products="btn-next"]')
+    if (btnNext) {
+        btnNext.remove()
+    }
+
+    main.addEventListener('click', (event) => {
+        const el = event.target
+
+        if (el.closest('[data-list-products="product-card-preview"]')) {
+            const productCardPreview = el.closest('[data-list-products="product-card-preview"]')
+
+            if (!productCardPreview.classList.contains('active')) {
+                hideAllCards()
+
+                productCardPreview.classList.add('active')
+                const indexProductCardPreview = +productCardPreview.getAttribute('data-list-products-index')
+                productCardPreview.style.height = `${heightProductCardPreviews[indexProductCardPreview]}px`
+            }
+        }
+
+        if (el.closest('[data-list-products="btn-next"]')) {
+            const btnNext = el.closest('[data-list-products="btn-next"]')
+            const productCardPreview = btnNext.closest('[data-list-products="product-card-preview"]')
+            const indexProductCardPreview = +productCardPreview.getAttribute('data-list-products-index')
+            const nextIndex = indexProductCardPreview + 1
+
+            if (nextIndex < countProductCardPreviews) {
+                productCardPreview.style.height = '97px'
+                productCardPreview.classList.remove('active')
+
+                showCard(nextIndex)
+            }
+        }
+    })
+
+    // animation scroll
+
+    const tlScroll = gsap.timeline({default: {duration: 0.5}})
+    let indexScroll = 0
+
+    ScrollTrigger.create({
+        animation: tlScroll,
+        trigger: main,
+        start: 'top top',
+        end: 'bottom',
+        scrub: true,
+        pin: true,
+        onUpdate: self => {
+            console.log("progress:", self.progress.toFixed(3))
+            let progress = self.progress.toFixed(3)
+
+        }
+    })
+}
+
 page()
 myModal()
 menuHeight()
@@ -409,3 +497,7 @@ productCard()
 validateForm()
 input()
 reviews()
+
+if (window.matchMedia("(max-width: 768px)").matches) {
+    listProducts()
+}
