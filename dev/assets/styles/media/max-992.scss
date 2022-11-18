@@ -302,4 +302,34 @@
             grid-row-gap: 20px;
         }
     }
+
+    .modal {
+
+        &.hystmodal {
+            .hystmodal__close {
+                top: 30px;
+                right: 30px;
+                width: 42px;
+                height: 42px;
+            }
+        }
+
+        &__group-block-image,
+        &__block-image {
+            border-radius: 35px;
+        }
+
+        &__wrapper-group {
+            min-height: 400px;
+        }
+
+        &__block-image {
+            height: 579px;
+        }
+
+        &__cards-wrapper {
+            grid-template-columns: repeat(2, 1fr);
+            grid-row-gap: 20px;
+        }
+    }
 }

@@ -1,4 +1,4 @@
-<section class="feedback">
+<section class="feedback" data-feedback="main">
     <div class="main-container max-width">
         <div class="main-wrapper">
             <form action="" class="feedback__form" novalidate data-validate-form>
@@ -11,13 +11,13 @@
                 <div class="feedback__block">
                     <span class="feedback__title-block">Я:</span>
                     <div class="feedback__inner-block">
-                        <div class="radio">
+                        <div class="radio" data-feedback="radio" data-feedback-name="legal">
                             <label data-role="" class="radio__label">
                                 <input type="radio" class="radio__input" name="1" value="" checked>
                                 <span class="radio__text">Юридическое лицо</span>
                             </label>
                         </div>
-                        <div class="radio">
+                        <div class="radio" data-feedback="radio" data-feedback-name="physical">
                             <label data-role="" class="radio__label">
                                 <input type="radio" class="radio__input" name="1" value="">
                                 <span class="radio__text">Физическое лицо</span>
@@ -28,7 +28,7 @@
                 <div class="feedback__block">
                     <span class="feedback__title-block">Заполните контактную информацию:</span>
                     <div class="feedback__inner-block">
-                        <div class="input" data-input="block-input">
+                        <div class="input" data-input="block-input" data-feedback="input">
                             <div class="input__block-input">
                                 <input type="text" class="input__input" data-input="input" data-input-type="name-company" required minlength="2">
                                 <span class="input__placeholder" data-input="placeholder">Название организации</span>

@@ -102,4 +102,15 @@
             grid-row-gap: 22px;
         }
     }
+
+    .modal {
+        &__block-cards {
+            grid-template-columns: 1fr;
+            grid-row-gap: 16px;
+
+            .modal__title {
+                text-align: left;
+            }
+        }
+    }
 }

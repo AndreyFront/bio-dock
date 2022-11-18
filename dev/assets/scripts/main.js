@@ -314,45 +314,73 @@ function productCard() {
 
         const blocksInfo = main.querySelectorAll('[data-product-card="block-info"]')
 
-            if (blocksInfo.length) {
-                blocksInfo.forEach(blockInfo => {
-                    const head = blockInfo.querySelector('[data-product-card="block-head-info"]')
-                    const body = blockInfo.querySelector('[data-product-card="block-body-info"]')
-                    if (window.matchMedia("(min-width: 577px)").matches) {
-                        if (!body && !head) return
-            
-                        let heightEl = body.offsetHeight
-                        body.classList.add('not-active')
-                        body.style.height = '0px'
+        if (blocksInfo.length) {
+            blocksInfo.forEach(blockInfo => {
+                const head = blockInfo.querySelector('[data-product-card="block-head-info"]')
+                const body = blockInfo.querySelector('[data-product-card="block-body-info"]')
+                if (window.matchMedia("(min-width: 577px)").matches) {
+                    if (!body && !head) return
         
-                        const closeAll = () => {
-                            blocksInfo.forEach(blockInfo => {
-                                const body = blockInfo.querySelector('[data-product-card="block-body-info"]')
-        
-                                blockInfo.classList.remove('active')
-                                body.classList.add('not-active')
-                                body.style.height = '0px'
-                            })
-                        }
-                    
-                        head.addEventListener('click', () => {
-                            if (body.classList.contains('not-active')) {
-                                closeAll()
-                                blockInfo.classList.add('active')
-                                body.classList.remove('not-active')
-                                body.style.height = `${heightEl}px`
-                            } else {
-                                blockInfo.classList.remove('active')
-                                body.classList.add('not-active')
-                                body.style.height = '0px'
-                            }
+                    let heightEl = body.offsetHeight
+                    body.classList.add('not-active')
+                    body.style.height = '0px'
+    
+                    const closeAll = () => {
+                        blocksInfo.forEach(blockInfo => {
+                            const body = blockInfo.querySelector('[data-product-card="block-body-info"]')
+    
+                            blockInfo.classList.remove('active')
+                            body.classList.add('not-active')
+                            body.style.height = '0px'
                         })
-                    } else {
-                        // head.setAttribute=""
-                        // Сделать перенос текста в модалку по клику на ссылку 
                     }
+                
+                    head.addEventListener('click', () => {
+                        if (body.classList.contains('not-active')) {
+                            closeAll()
+                            blockInfo.classList.add('active')
+                            body.classList.remove('not-active')
+                            body.style.height = `${heightEl}px`
+                        } else {
+                            blockInfo.classList.remove('active')
+                            body.classList.add('not-active')
+                            body.style.height = '0px'
+                        }
+                    })
+                } else {
+                    head.setAttribute('data-hystmodal', '#m-more-detailed')
+                    
+                    document.addEventListener('click', (event) => {
+                        const el = event.target
+
+                        if (el.closest('[data-product-card="block-info"]')) {
+                            const blockInfo = el.closest('[data-product-card="block-info"]')
+                            const bodyInfo = blockInfo.querySelector('[data-product-card="body-info"]')
+                            const title = blockInfo.querySelector('[data-product-card="title-block-info"]')
+                            const valueTitle = title.innerText
+                            const clonedBodyInfo = bodyInfo.cloneNode(true)
+
+                            const modal = document.getElementById('m-more-detailed')
+
+                            if (modal) {
+                                const wrapperContent = modal.querySelector('.modal__wrapper-content')
+                                const title = modal.querySelector('.modal__block-title-title')
+                                const bodyInfo = modal.querySelector('[data-product-card="body-info"]')
+
+                                title.innerText = valueTitle.toLowerCase()
+
+                                if (bodyInfo) {
+                                    bodyInfo.remove()
+                                    wrapperContent.append(clonedBodyInfo)
+                                } else {
+                                    wrapperContent.append(clonedBodyInfo)
+                                }
+                            }
+                        }
+                    })
+                }
             })
-           
+        
         }
 
         const swiper = new Swiper(slider, {
@@ -406,6 +434,7 @@ function listProducts() {
     const productCardPreviews = main.querySelectorAll('[data-list-products="product-card-preview"]')
     const countProductCardPreviews = productCardPreviews.length
     const openingInterval = (99 / countProductCardPreviews) / 100
+    console.log(openingInterval)
     const heightProductCardPreviews = []
 
     productCardPreviews.forEach((productCardPreview, index) => {
@@ -468,20 +497,49 @@ function listProducts() {
 
     // animation scroll
 
-    const tlScroll = gsap.timeline({default: {duration: 0.5}})
-    let indexScroll = 0
+    // const tlScroll = gsap.timeline({default: {duration: 0.5}})
+    // let indexScroll = 0
 
-    ScrollTrigger.create({
-        animation: tlScroll,
-        trigger: main,
-        start: 'top top',
-        end: 'bottom',
-        scrub: true,
-        pin: true,
-        onUpdate: self => {
-            console.log("progress:", self.progress.toFixed(3))
-            let progress = self.progress.toFixed(3)
+    // ScrollTrigger.create({
+    //     animation: tlScroll,
+    //     trigger: main,
+    //     start: 'top top',
+    //     end: 'bottom',
+    //     scrub: true,
+    //     pin: true,
+    //     onUpdate: self => {
+    //         console.log("progress:", self.progress.toFixed(3))
+    //         let progress = self.progress.toFixed(3)
+    //         console.log((progress / openingInterval).toFixed(0))
+    //         hideAllCards()
+    //         showCard((progress / openingInterval).toFixed(0))
+    //     }
+    // })
+}
 
+function feedback() {
+    const main = document.querySelector('[data-feedback="main"]')
+
+    if (!main) return
+
+    const blockInput = main.querySelector('[data-feedback="input"]')
+    const placeholder = blockInput.querySelector('[data-input="placeholder"]')
+    const input = blockInput.querySelector('input')
+
+    main.addEventListener('click', (event) => {
+        const el = event.target
+
+        if (el.closest('[data-feedback="radio"]')) {
+            const radio = el.closest('[data-feedback="radio"]')
+            const radioName = radio.getAttribute('data-feedback-name')
+
+            if (radioName === 'legal') {
+                placeholder.textContent = 'Название организации'
+                input.setAttribute('data-input-type', 'name-company')
+            } else {
+                placeholder.textContent = 'Имя'
+                input.setAttribute('data-input-type', 'name')
+            }
         }
     })
 }
@@ -497,6 +555,7 @@ productCard()
 validateForm()
 input()
 reviews()
+feedback()
 
 if (window.matchMedia("(max-width: 768px)").matches) {
     listProducts()

@@ -1,6 +1,7 @@
 .block-text {
     display: grid;
     grid-row-gap: 56px;
+    align-content: start;
     padding: 29px;
     border: 1px solid rgba(27, 27, 41, 0.7);
     border-radius: 30px;
