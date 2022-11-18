@@ -190,6 +190,14 @@
             .product-card__head-info-icon {
                 transform: rotate(-180deg);
             }
+
+            .product-card__head-info-icon use {
+                stroke: $color-3;
+            }
+
+            .product-card__title-block-info {
+                color: $color-3;
+            }
         }
     }
 
@@ -200,6 +208,14 @@
         align-items: center;
         cursor: pointer;
         padding: 17px 0;
+
+        &:hover .product-card__title-block-info {
+            color: $color-3;
+        }
+
+        &:hover .product-card__head-info-icon use {
+            stroke: $color-3;
+        }
     }
 
     &__title-block-info {
@@ -207,12 +223,18 @@
         color: $color-1;
         font-weight: 500;
         font-size: 16px;
+        transition: color $transition-time;
     }
 
     &__head-info-icon {
         width: 22px;
         height: 22px;
         transition: transform $transition-time;
+
+        use {
+            stroke: $color-1;
+            transition: stroke $transition-time;
+        }
     }
 
     &__block-body-info {

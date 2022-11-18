@@ -103,8 +103,12 @@
         border-color: $color-3;
 
         &:hover {
-            background-color: $main-color;
-            border-color: $main-color;
+            background-color: $color-3;
+            border-color: $color-3;
+        }
+
+        &:hover .btn__text {
+            color: $main-color;
         }
 
         .btn {
