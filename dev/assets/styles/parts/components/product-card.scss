@@ -250,12 +250,12 @@
     }
 
     &__body-info-text {
+        opacity: 0.7;
         
-        p, b, ul li {
+        p, b, p b, ul li {
             color: $color-1;
             letter-spacing: -0.2px;
             line-height: 1.62em;
-            opacity: 0.7;
         }
 
         p {
@@ -268,7 +268,9 @@
             }
         }
 
-        b {}
+        b {
+
+        }
 
         ul {
             padding-left: 20px;
