@@ -51,11 +51,57 @@
         right: 16px;
     }
 
+    &__block-image-review {
+        position: relative;
+        height: 100%;
+
+        .reviews__image-review {
+            filter: blur(11px);
+        }
+    }
+
+    &__block-leave-review {
+        position: absolute;
+        display: grid;
+        align-content: space-between;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 26px;
+
+        .btn {
+            margin: auto auto 0 auto;
+            width: 188px;
+            min-height: 48px;
+
+            &:hover {
+                background-color: $main-color;
+                border-color: $main-color;
+            }
+        }
+    }
+
+    &__leave-review-title {
+        max-width: 143px;
+        font-weight: 700;
+        font-size: 24px;
+        letter-spacing: -0.2px;
+        line-height: 1.1em;
+    }
+
     &__image-review {
         width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: center;
+    }
+
+    &__leave-review-btn.btn {
+        display: none;
+        width: 275px;
+        min-height: 69px;
+        margin-top: 12px;
     }
 
     .arrow {

@@ -239,6 +239,23 @@
     }
 
     .modal {
+
+        &--size--sm {
+            &.hystmodal {
+                .hystmodal {
+                    &__window {
+                        border-radius: 35px;
+                        padding: 39px 30px 30px 30px;
+                    }
+    
+                    &__close {
+                        top: 30px;
+                        right: 30px;
+                    }
+                }
+            }
+        }
+
         &__wrapper-content {
             grid-row-gap: 0;
         }
@@ -291,6 +308,65 @@
 
                 &:not(:first-child) {
                     padding-left: 30px;
+                }
+            }
+        }
+
+        &__form {
+            margin-top: 33px;
+
+            .input {
+                height: 69px;
+
+                &--focus .input__input {
+                    padding: 20px 31px 0 31px;
+                }
+
+                &__input {
+                    padding: 20px 31px 0 31px;
+                }
+
+                &__placeholder {
+                    left: 31px;
+                }
+            }
+
+            .textarea {
+
+                &--focus .textarea__textarea {
+                    padding: 50px 31px 0 31px;
+                }
+                
+                &__block-textarea {
+                    height: 241px;
+                }
+                
+                &__textarea {
+                    padding: 31px;
+                }
+
+                &__placeholder {
+                    top: 30px;
+                    left: 31px;
+                }
+            }
+
+            .btn {
+                min-height: 69px;
+                border-radius: 25px;
+
+                &__text {
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+
+    .m-leave-review {
+        &.modal {
+            .modal {
+                &__inner-title {
+                    margin-top: 0;
                 }
             }
         }

@@ -94,6 +94,20 @@
                 height: 374px;
             }
         }
+
+        &__block-image-review {
+            .reviews__image-review {
+                filter: blur(0);
+            }
+        }
+
+        &__block-leave-review {
+            display: none;
+        }
+
+        &__leave-review-btn.btn {
+            display: grid;
+        }
     }
 
     .list-products {

@@ -22,7 +22,7 @@
                 &__window {
                     border-radius: 40px;
                     max-width: 477px;
-                    padding: 40px;
+                    padding: 62px 40px 40px 40px;
                 }
 
                 &__close {
@@ -175,6 +175,72 @@
             margin: 0;
             line-height: 1.37em;
         }
+    }
+
+
+    &__form {
+        margin-top: 49px;
+
+        .textarea__block-textarea,
+        .input__block-input {
+            width: 100%;
+        }
+
+        .input {
+
+            &--focus {
+                .input {
+                    &__placeholder {
+                        transform: translate(0, -120%) scale(0.9);
+                    }
+
+                    &__input {
+                        padding: 20px 49px 0 49px;
+                    }
+                }
+            }
+
+            &__input {
+                text-align: left;
+                padding: 20px 49px 0 49px;
+            }
+
+            &__placeholder {
+                left: 49px;
+                width: auto;
+                transform: translate(0%, -50%);
+            }
+        }
+
+        .textarea {
+            &__textarea {
+                text-align: left;
+            }
+        }
+
+        .btn {
+            width: 100%;
+            min-height: 99px;
+            margin-top: 32px;
+
+            &__text {
+                @include adaptiv-font(20, 16);
+                font-weight: 500;
+            }
+        }
+
+        .add-photo {
+            margin-top: 12px;
+        }
+
+        .privacy-policy-label {
+            margin-top: 8px;
+        }
+    }
+
+    &__wrapper-inputs {
+        display: grid;
+        grid-row-gap: 8px;
     }
 
     &.hystmodal {

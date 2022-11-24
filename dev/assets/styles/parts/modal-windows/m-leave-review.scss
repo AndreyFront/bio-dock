@@ -1,0 +1,14 @@
+.m-leave-review {
+
+    &.modal {
+        .modal {
+            &__inner-title {
+                justify-content: start;
+            }
+
+            &__block-title-title {
+                font-size: 20px;
+            }
+        }
+    }
+}

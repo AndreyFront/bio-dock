@@ -1,0 +1,60 @@
+<div class="hystmodal modal modal--size--sm m-leave-review" id="m-leave-review" aria-hidden="true">
+    <div class="hystmodal__wrap">
+        <div class="hystmodal__window" role="dialog" aria-modal="true">
+            <button data-hystclose class="hystmodal__close">
+                <svg class="modal__close-icon">
+                    <use xlink:href="./assets/icons/sprite-svg.svg#round-cross"/>
+                </svg>
+            </button>
+            <div class="modal__wrapper-content">
+                <div class="modal__block-title">
+                    <div class="modal__inner-title">
+                        <span class="modal__block-title-title">Оставте свой отзыв</span>
+                    </div>
+                </div>
+                <form action="" class="modal__form" novalidate data-validate-form>
+                    <div class="modal__wrapper-inputs">
+                        <div class="input" data-input="block-input">
+                            <div class="input__block-input">
+                                <input type="text" class="input__input" data-input="input" data-input-type="name" required minlength="2">
+                                <span class="input__placeholder" data-input="placeholder">Имя</span>
+                            </div>
+                        </div>
+                        <div class="textarea" data-textarea="block-textarea">
+                            <div class="textarea__block-textarea">
+                                <textarea class="textarea__textarea" data-textarea="textarea" data-scrollbar required></textarea>
+                                <span class="textarea__placeholder" data-textarea="placeholder">Комментарий</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="add-photo"><!-- add-photo--photos -->
+                        <div class="add-photo__decore">
+                            <input type="file" class="add-photo__input" accept=".png,.jpeg">
+                            <svg class="add-photo__decore-icon">
+                                <use xlink:href="./assets/icons/sprite-svg.svg#plus"></use>
+                            </svg>
+                        </div>
+                        <div class="add-photo__block-info">
+                            <span class="add-photo__title">Добавьте фото</span>
+                            <span class="add-photo__subtitle">Загрузите изображения в формате PNG, JPEG</span>
+                        </div>
+                        <div class="add-photo__wrapper-added-photo">
+                            <div class="add-photo__block-added-photo">
+                                <img src="./assets/images/feedback-1.jpg" class="add-photo__added-photo" alt="">
+                            </div>
+                            <div class="add-photo__block-added-photo">
+                                <img src="./assets/images/feedback-2.jpg" class="add-photo__added-photo" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="privacy-policy-label">
+                        <span class="privacy-policy-label__text">Нажимая на кнопку, вы соглашаетесь с <a href="#" class="privacy-policy-label__link link-reset">Политикой конфиденциальности</a></span>
+                    </div> 
+                    <button type="submit" class="btn btn--size--md btn--theme--primary">
+                        <span class="btn__text">Отправить</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

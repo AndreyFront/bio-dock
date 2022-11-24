@@ -277,6 +277,47 @@ function input() {
     document.addEventListener('pointerup', (event) => logic(event))
 }
 
+function textarea() {
+    const textareas = document.querySelectorAll('[data-textarea="block-textarea"]')
+
+    if (!textareas.length) return
+
+    const removeClass = () => {
+        textareas.forEach(elTextarea => {
+            const textarea = elTextarea.querySelector('[data-textarea="textarea"]')
+            if (!textarea.value) {
+                elTextarea.classList.remove('textarea--focus')
+            } else {
+                elTextarea.classList.add('textarea--focus')
+            }
+        })
+    }
+
+    const logic = (event) => {
+        if (event.target.closest('[data-textarea="block-textarea"]')) {
+            const blockTextarea = event.target.closest('[data-textarea="block-textarea"]')
+
+            removeClass()
+
+            blockTextarea.classList.add('textarea--focus')
+        } else {
+            removeClass()
+        }
+    }
+
+    textareas.forEach(elTextarea => {
+        const textarea = elTextarea.querySelector('[data-textarea="textarea"]')
+        if (textarea.value) {
+            elTextarea.classList.add('textarea--focus')
+        }
+    })
+
+    document.addEventListener('focusin', (event) => logic(event))
+
+    document.addEventListener('pointerup', (event) => logic(event))
+}
+
+
 function sliderProducts() {
     const mains = document.querySelectorAll('[data-slider-products="main"]')
 
@@ -554,6 +595,7 @@ sliderProducts()
 productCard()
 validateForm()
 input()
+textarea()
 reviews()
 feedback()
 

@@ -1,0 +1,14 @@
+.privacy-policy-label {
+    &__text,
+    &__link {
+        @include adaptiv-font(16, 10);
+    }
+
+    &__text {
+        color: $color-18;
+    }
+
+    &__link {
+        color: $color-11;
+    }
+}
