@@ -99,7 +99,9 @@
 
     &__block-main-info {}
 
-    &__block-name {}
+    &__block-name {
+        padding-right: 45px;
+    }
 
     &__name {
         @include adaptiv-font(32, 20);
